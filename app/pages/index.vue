@@ -1,5 +1,6 @@
 <script setup lang="ts">
-
+const titleStore = useTitleStore();
+titleStore.pageTitle = 'Control de Viajes';
 </script>
 
 <template>

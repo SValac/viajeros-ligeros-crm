@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+const titleStore = useTitleStore();
 </script>
 
 <template>
@@ -20,7 +20,7 @@
           <div class="flex-1">
             <UPage>
               <UPageHeader
-                title="Control de Viajes"
+                :title="titleStore.pageTitle"
                 description="Administra y supervisa todos los viajes realizados por tus clientes de manera eficiente."
                 class="py-2 p-2"
               />

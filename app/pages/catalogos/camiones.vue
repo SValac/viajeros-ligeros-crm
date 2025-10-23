@@ -1,5 +1,7 @@
 <script setup lang="ts">
+const titleStore = useTitleStore();
 
+titleStore.pageTitle = 'Catálogo de Camiones';
 </script>
 
 <template>
