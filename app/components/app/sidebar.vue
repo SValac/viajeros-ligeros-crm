@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui';
 
+const route = useRoute();
+
+const isActiveRoute = computed(() => route.path);
+
 const items: NavigationMenuItem[][] = [[
   {
     label: 'Inicio',
     icon: 'i-lucide-house',
-    active: true,
+    to: '/',
+    active: computed(() => isActiveRoute.value === '/') as unknown as boolean,
   },
   {
     label: 'Bandeja de entrada',
@@ -28,6 +33,8 @@ const items: NavigationMenuItem[][] = [[
     children: [
       {
         label: 'Camiones',
+        to: '/catalogos/camiones',
+        active: computed(() => isActiveRoute.value === '/catalogos/camiones'),
       },
       {
         label: 'Clientes',
