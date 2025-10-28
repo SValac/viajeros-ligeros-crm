@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const titleStore = useTitleStore();
+const appStore = useAppStore();
 </script>
 
 <template>
@@ -19,11 +19,21 @@ const titleStore = useTitleStore();
           <AppSidebar />
           <div class="flex-1">
             <UPage>
-              <UPageHeader
-                :title="titleStore.pageTitle"
-                description="Administra y supervisa todos los viajes realizados por tus clientes de manera eficiente."
-                class="py-2 p-2"
-              />
+              <div
+                class="flex flex-col md:flex-row items-center justify-center"
+              >
+                <UPageHeader
+                  :title="appStore.pageTitle"
+                  :description="appStore.pageDescription"
+                  class="flex-1 py-2 p-2"
+                />
+                <UButton
+                  v-if="appStore.showAddButton"
+                  label="Nuevo"
+                  class="flex w-fit h-fit"
+                  to="/catalogos/camiones/new"
+                />
+              </div>
               <UPageBody class="px-2 sm:px-4 lg:px-6">
                 <slot />
               </UPageBody>
@@ -35,6 +45,4 @@ const titleStore = useTitleStore();
   </UDashboardGroup>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
